@@ -58,6 +58,40 @@ namespace Assignment4OOP
             //airplaneFlyable.Forward(); 
             #endregion
 
+            #region Part01 - (Deep Copy Vs Shallow Copy) [array of value type]
+            int[] arr01 = { 1, 2, 3 };
+            int[] arr02 = { 4, 5, 6 };
+
+            Console.WriteLine($"Hash Code arr01 => {arr01.GetHashCode()}");
+            Console.WriteLine($"Hash Code arr02 => {arr02.GetHashCode()}");
+
+            #region Shallow Copy
+            //// Shallow Copy
+            //arr02 = arr01;
+            //// the object { 1, 2, 3 } has 2 references
+            //// the object { 4, 5, 6 } is unreachable
+            //Console.WriteLine("After Shallow Copy");
+            //Console.WriteLine($"Hash Code arr01 => {arr01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code arr02 => {arr02.GetHashCode()}");
+
+            //arr02[0] = 100;
+            //Console.WriteLine(arr01[0]); // 100 
+            #endregion
+
+            #region Deep Copy
+            //arr02 = (int[]) arr01.Clone();
+            //// Clone :
+            //// - Will generate new object with new address
+            //// - this object will have the same Data of Caller Object
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"Hash Code arr01 => {arr01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code arr02 => {arr02.GetHashCode()}");
+
+            //arr02[0] = 100;
+            //Console.WriteLine(arr01[0]); // 1 
+            #endregion
+            #endregion
+
             #region Part02
             #region Part02-Q1
             // Question 1:

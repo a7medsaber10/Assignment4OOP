@@ -3,8 +3,12 @@ using Assignment4OOP.InterfaceEx02;
 using Assignment4OOP.Interfaces;
 using Assignment4OOP.InterfacesEx01;
 using Assignment4OOP.Part03Q01;
+using Assignment4OOP.Part03Q02;
+using System.Data;
+using System.Net;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment4OOP
 {
@@ -173,32 +177,32 @@ namespace Assignment4OOP
             #endregion
 
             #region Part01 - IClonable
-            Employee emp01 = new Employee()
-            {
-                Id = 10,
-                Name = "Ali",
-                Salary = 3_000
-            };
+            //Employee emp01 = new Employee()
+            //{
+            //    Id = 10,
+            //    Name = "Ali",
+            //    Salary = 3_000
+            //};
 
-            Employee emp02 = new Employee()
-            {
-                Id = 20,
-                Name = "Mona",
-                Salary = 5_000
-            };
+            //Employee emp02 = new Employee()
+            //{
+            //    Id = 20,
+            //    Name = "Mona",
+            //    Salary = 5_000
+            //};
 
-            Console.WriteLine($"Hash Code emp01 => {emp01.GetHashCode()}");
-            Console.WriteLine($"Hash Code emp02 => {emp02.GetHashCode()}");
+            //Console.WriteLine($"Hash Code emp01 => {emp01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code emp02 => {emp02.GetHashCode()}");
 
-            //Employee emp03 = emp01; // Shallow Copy
+            ////Employee emp03 = emp01; // Shallow Copy
 
-            Employee emp03 = (Employee)emp01.Clone(); // Deep Copy
-            Console.WriteLine("After Deep Copy");
-            Console.WriteLine($"Hash Code emp01 => {emp01.GetHashCode()}");
-            Console.WriteLine($"Hash Code emp03 => {emp03.GetHashCode()}");
+            //Employee emp03 = (Employee)emp01.Clone(); // Deep Copy
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"Hash Code emp01 => {emp01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code emp03 => {emp03.GetHashCode()}");
 
-            Console.WriteLine(emp01);
-            Console.WriteLine(emp03);
+            //Console.WriteLine(emp01);
+            //Console.WriteLine(emp03);
             #endregion
 
             #region Part01 - IComparable
@@ -338,15 +342,66 @@ namespace Assignment4OOP
             #endregion
 
 
+            // Question 01:
+            // Define an interface named IShape with a property Area and a method DisplayShapeInfo.
+            // Create two interfaces, ICircle and IRectangle, that inherit from IShape.
+            // Implement these interfaces in classes Circle and Rectangle.
+            // Test your implementation by creating instances of both classes and displaying their shape information.
             #region Part03Q01
-            // Create instances of Circle and Rectangle
-            Circle circle = new Circle(5.0);
-            Rectangle rectangle = new Rectangle(4.0, 3.0);
+            //// Create instances of Circle and Rectangle
+            //Circle circle = new Circle(5.0);
+            //Rectangle rectangle = new Rectangle(4.0, 3.0);
 
-            // Display shape information
-            circle.DisplayShapeInfo();
-            rectangle.DisplayShapeInfo(); 
+            //// Display shape information
+            //circle.DisplayShapeInfo();
+            //rectangle.DisplayShapeInfo(); 
             #endregion
+
+
+            // Question 02:
+            // In this example, we start by defining the IAuthenticationService interface with two methods: AuthenticateUser and AuthorizeUser.
+            // The BasicAuthenticationService class implements this interface and provides the specific implementation for these methods.
+            // In the BasicAuthenticationService class,
+            // the AuthenticateUser method compares the provided username and password with the stored credentials.
+            // It returns true if the user is authenticated and false otherwise.
+            // The AuthorizeUser method checks if the user with the given username has the specified role.
+            // It returns true if the user is authorized and false otherwise.
+            // In the Main method,
+            // we create an instance of the BasicAuthenticationService class
+            // and assign it to the authService variable of type IAuthenticationService.
+            // We then call the AuthenticateUser and AuthorizeUser methods using this interface reference.
+            // This implementation allows you to switch the authentication service implementation easily
+            // by creating a new class that implements the IAuthenticationService interface
+            // and providing the desired logic for authentication and authorization.
+            #region Part03Q02
+            IAuthenticationService authService = new BasicAuthenticationService();
+
+            string username = "Ahmed";
+            string password = "123";
+            string role = "admin";
+
+            // Authenticate user
+            bool isAuthenticated = authService.AuthenticateUser(username, password);
+            Console.WriteLine($"Authentication result for {username}: {isAuthenticated}");
+
+            // Authorize user
+            bool isAuthorized = authService.AuthorizeUser(username, role);
+            Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
+
+            // Test with another role
+            role = "editor";
+            isAuthorized = authService.AuthorizeUser(username, role);
+            Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
+
+            // Test with a non-existing role
+            role = "manager";
+            isAuthorized = authService.AuthorizeUser(username, role);
+            Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
+
+            #endregion
+
+
+
 
 
 

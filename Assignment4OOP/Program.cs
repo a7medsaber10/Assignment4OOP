@@ -59,11 +59,11 @@ namespace Assignment4OOP
             #endregion
 
             #region Part01 - (Deep Copy Vs Shallow Copy) [array of value type]
-            int[] arr01 = { 1, 2, 3 };
-            int[] arr02 = { 4, 5, 6 };
+            //int[] arr01 = { 1, 2, 3 };
+            //int[] arr02 = { 4, 5, 6 };
 
-            Console.WriteLine($"Hash Code arr01 => {arr01.GetHashCode()}");
-            Console.WriteLine($"Hash Code arr02 => {arr02.GetHashCode()}");
+            //Console.WriteLine($"Hash Code arr01 => {arr01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code arr02 => {arr02.GetHashCode()}");
 
             #region Shallow Copy
             //// Shallow Copy
@@ -89,6 +89,42 @@ namespace Assignment4OOP
 
             //arr02[0] = 100;
             //Console.WriteLine(arr01[0]); // 1 
+            #endregion
+            #endregion
+
+            #region Part01 - (Deep Copy Vs Shallow Copy) [array of Reference type (String)]
+            //string[] name01 = new string[] { "omar" };
+            //string[] name02 = new string[1];
+
+            //Console.WriteLine($"Hash Code name01 => {name01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code name02 => {name02.GetHashCode()}");
+
+            #region Shallow Copy
+            //name02 = name01;
+            //Console.WriteLine($"Hash Code name01 => {name01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code name02 => {name02.GetHashCode()}");
+
+            //Console.WriteLine(name01[0]); // omar
+            //Console.WriteLine(name02[0]); // omar
+
+            //name02[0] = "mona";
+            //Console.WriteLine(name01[0]); // mona
+            //Console.WriteLine(name02[0]); // mona
+            #endregion
+
+            #region Deep Copy
+            //name02 = (string[]) name01.Clone();
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"Hash Code name01 => {name01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code name02 => {name02.GetHashCode()}");
+
+            //Console.WriteLine(name01[0]); // omar
+            //Console.WriteLine(name02[0]); // omar
+
+            //name02[0] = "mona";
+            //Console.WriteLine("After change");
+            //Console.WriteLine(name01[0]); // omar
+            //Console.WriteLine(name02[0]); // mona
             #endregion
             #endregion
 

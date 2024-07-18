@@ -4,11 +4,15 @@ using Assignment4OOP.Interfaces;
 using Assignment4OOP.InterfacesEx01;
 using Assignment4OOP.Part03Q01;
 using Assignment4OOP.Part03Q02;
+using Assignment4OOP.Part03Q03;
+using System;
 using System.Data;
 using System.Net;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
+using System.Threading.Channels;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment4OOP
 {
@@ -374,37 +378,58 @@ namespace Assignment4OOP
             // by creating a new class that implements the IAuthenticationService interface
             // and providing the desired logic for authentication and authorization.
             #region Part03Q02
-            IAuthenticationService authService = new BasicAuthenticationService();
+            //IAuthenticationService authService = new BasicAuthenticationService();
 
-            string username = "Ahmed";
-            string password = "123";
-            string role = "admin";
+            //string username = "Ahmed";
+            //string password = "123";
+            //string role = "admin";
 
-            // Authenticate user
-            bool isAuthenticated = authService.AuthenticateUser(username, password);
-            Console.WriteLine($"Authentication result for {username}: {isAuthenticated}");
+            //// Authenticate user
+            //bool isAuthenticated = authService.AuthenticateUser(username, password);
+            //Console.WriteLine($"Authentication result for {username}: {isAuthenticated}");
 
-            // Authorize user
-            bool isAuthorized = authService.AuthorizeUser(username, role);
-            Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
+            //// Authorize user
+            //bool isAuthorized = authService.AuthorizeUser(username, role);
+            //Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
 
-            // Test with another role
-            role = "editor";
-            isAuthorized = authService.AuthorizeUser(username, role);
-            Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
+            //// Test with another role
+            //role = "editor";
+            //isAuthorized = authService.AuthorizeUser(username, role);
+            //Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
 
-            // Test with a non-existing role
-            role = "manager";
-            isAuthorized = authService.AuthorizeUser(username, role);
-            Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
+            //// Test with a non-existing role
+            //role = "manager";
+            //isAuthorized = authService.AuthorizeUser(username, role);
+            //Console.WriteLine($"Authorization result for {username} with role {role}: {isAuthorized}");
 
             #endregion
 
+            // Question 03:
+            // we define the INotificationService interface with a method SendNotification that takes a recipient and a message as parameters.
+            // We then create three classes: EmailNotificationService, SmsNotificationService, and PushNotificationService, which implement the INotificationService interface.
+            // In each implementation, we provide the logic to send notifications through the respective communication channel:
+            // The EmailNotificationService class simulates sending an email by outputting a message to the console.
+            // The SmsNotificationService class simulates sending an SMS by outputting a message to the console.
+            // The PushNotificationService class simulates sending a push notification by outputting a message to the console.
+            // In the Main method, we create instances of each notification service class and call the SendNotification method with sample recipient and message values.
+            // This implementation allows you to easily switch between different notification channels
+            // by creating new classes that implement the INotificationService interface and provide the specific logic for each channel.
+            #region Part03Q03
+            //// Create instances of each notification service
+            //INotificationService emailService = new EmailNotificationService();
+            //INotificationService smsService = new SmsNotificationService();
+            //INotificationService pushService = new PushNotificationService();
 
+            //// Sample recipient and message
+            //string recipient = "user@example.com";
+            //string message = "This is a test notification.";
 
+            //// Send notifications using each service
+            //emailService.SendNotification(recipient, message);
+            //smsService.SendNotification("123-456-7890", message);
+            //pushService.SendNotification("user123", message);
 
-
-
+            #endregion
         }
-    }
+}
 }

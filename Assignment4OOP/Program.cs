@@ -2,6 +2,7 @@
 using Assignment4OOP.InterfaceEx02;
 using Assignment4OOP.Interfaces;
 using Assignment4OOP.InterfacesEx01;
+using Assignment4OOP.Part03Q01;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
 
@@ -335,6 +336,19 @@ namespace Assignment4OOP
             // Answer => c) By separating interface names with commas
             #endregion
             #endregion
+
+
+            #region Part03Q01
+            // Create instances of Circle and Rectangle
+            Circle circle = new Circle(5.0);
+            Rectangle rectangle = new Rectangle(4.0, 3.0);
+
+            // Display shape information
+            circle.DisplayShapeInfo();
+            rectangle.DisplayShapeInfo(); 
+            #endregion
+
+
 
         }
     }

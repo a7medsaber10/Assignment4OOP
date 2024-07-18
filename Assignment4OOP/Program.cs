@@ -1,4 +1,5 @@
-﻿using Assignment4OOP.InterfaceEx02;
+﻿using Assignment4OOP.IClonable;
+using Assignment4OOP.InterfaceEx02;
 using Assignment4OOP.Interfaces;
 using Assignment4OOP.InterfacesEx01;
 using System.Runtime.Intrinsics.X86;
@@ -169,6 +170,37 @@ namespace Assignment4OOP
             //Console.WriteLine(name02[0]); // Omar Ahmed
             #endregion
             #endregion
+
+            #region Part01 - IClonable
+            Employee emp01 = new Employee()
+            {
+                Id = 10,
+                Name = "Ali",
+                Salary = 3_000
+            };
+
+            Employee emp02 = new Employee()
+            {
+                Id = 20,
+                Name = "Mona",
+                Salary = 5_000
+            };
+
+            Console.WriteLine($"Hash Code emp01 => {emp01.GetHashCode()}");
+            Console.WriteLine($"Hash Code emp02 => {emp02.GetHashCode()}");
+
+            //Employee emp03 = emp01; // Shallow Copy
+
+            Employee emp03 = (Employee)emp01.Clone(); // Deep Copy
+            Console.WriteLine("After Deep Copy");
+            Console.WriteLine($"Hash Code emp01 => {emp01.GetHashCode()}");
+            Console.WriteLine($"Hash Code emp03 => {emp03.GetHashCode()}");
+
+            Console.WriteLine(emp01);
+            Console.WriteLine(emp03); 
+            #endregion
+
+
 
             #region Part02
             #region Part02-Q1

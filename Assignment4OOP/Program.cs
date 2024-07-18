@@ -197,7 +197,27 @@ namespace Assignment4OOP
             Console.WriteLine($"Hash Code emp03 => {emp03.GetHashCode()}");
 
             Console.WriteLine(emp01);
-            Console.WriteLine(emp03); 
+            Console.WriteLine(emp03);
+            #endregion
+
+            #region Part01 - IComparable
+            //int[] Numbers = { 7, 2, 8, 66, 5 };
+
+            //Array.Sort( Numbers );
+
+            //Employee[] employees =
+            //{
+            //    new Employee() {Id = 10, Name = "omar", Salary = 3_000},
+            //    new Employee() {Id = 20, Name = "ali", Salary = 6_000},
+            //    new Employee() {Id = 30, Name = "mona", Salary = 7_000},
+            //};
+
+            //Array.Sort(employees);
+
+            //foreach (var item in employees)
+            //{
+            //    Console.WriteLine(item);
+            //}
             #endregion
 
 

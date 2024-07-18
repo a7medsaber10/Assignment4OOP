@@ -2,6 +2,7 @@
 using Assignment4OOP.Interfaces;
 using Assignment4OOP.InterfacesEx01;
 using System.Runtime.Intrinsics.X86;
+using System.Text;
 
 namespace Assignment4OOP
 {
@@ -125,6 +126,47 @@ namespace Assignment4OOP
             //Console.WriteLine("After change");
             //Console.WriteLine(name01[0]); // omar
             //Console.WriteLine(name02[0]); // mona
+            #endregion
+            #endregion
+
+            #region Part01 - (Deep Copy Vs Shallow Copy) [array of Reference type (StringBuilder)]
+            //StringBuilder[] name01 = new StringBuilder[1];
+            ////name01[0].Append("omar"); // null ref exception
+            //name01[0] = new StringBuilder("Omar");
+
+            //StringBuilder[] name02 = new StringBuilder[1];
+
+            //Console.WriteLine($"Hash Code name01 => {name01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code name02 => {name02.GetHashCode()}");
+
+            #region Shallow Copy
+            //name02 = name01;
+            //Console.WriteLine("After Shallow Copy");
+            //Console.WriteLine($"Hash Code name01 => {name01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code name02 => {name02.GetHashCode()}");
+
+            //Console.WriteLine(name01[0]); // omar
+            //Console.WriteLine(name02[0]); // omar
+
+            //name02[0].Append( " Ahmed" );
+            //Console.WriteLine("After change");
+            //Console.WriteLine(name01[0]); // Omar Ahmed
+            //Console.WriteLine(name02[0]); // Omar Ahmed
+            #endregion
+
+            #region Deep Copy
+            //name02 = (StringBuilder[]) name01.Clone();
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"Hash Code name01 => {name01.GetHashCode()}");
+            //Console.WriteLine($"Hash Code name02 => {name02.GetHashCode()}");
+
+            //Console.WriteLine(name01[0]); // omar
+            //Console.WriteLine(name02[0]); // omar
+
+            //name02[0].Append(" Ahmed");
+            //Console.WriteLine("After change");
+            //Console.WriteLine(name01[0]); // Omar Ahmed
+            //Console.WriteLine(name02[0]); // Omar Ahmed
             #endregion
             #endregion
 
